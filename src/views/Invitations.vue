@@ -1,32 +1,172 @@
 <template>
     <div class="main__container">
-        <div v-if="!inviteAccepted" class="form__container">
+        <div v-if="!inviteAccepted" class="container">
             <hr />
             <p class="description__text">
-                Nosso casamento está cada vez mais próximo e sua presença é muito importante para nós. Porém, é imprescindível que confirme sua presença. Se você não puder comparecer, compreendemos e esperamos que possamos, em breve, marcar um encontro para nos vermos.
+                Nosso casamento está cada vez mais próximo e sua presença é muito importante para nós. Porém, é
+                imprescindível que confirme sua presença. Se você não puder comparecer, compreendemos e esperamos que
+                possamos, em breve, marcar um encontro para nos vermos.
             </p>
             <hr />
             <div>
-                <input type="text" v-model="guestName" class="guest_name__input">
+                <input placeholder="Ex.: Silva e família" type="text" v-model="guestName" class="guest_name__input">
             </div>
             <button @click="acceptInvitation" class="submit__button" :disabled="disableSubmitButton">
-                Aceitar convite
+                Confirmar presença
             </button>
         </div>
 
         <div v-else>
-            aceito
+            <div class="container">
+                <h4>Obrigado por confirmar a presença!</h4>
+            </div>
+            <div class="card">
+                <div class="accordion_container">
+                    <el-collapse accordion>
+                        <el-collapse-item name="1">
+                            <template #title>
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16 24C16 21.7909 17.7909 20 20 20H60C62.2091 20 64 21.7909 64 24V64C64 66.2091 62.2091 68 60 68H20C17.7909 68 16 66.2091 16 64V24Z"
+                                        stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M53 20V12" stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M27 20V12" stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M16 32H64" stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                Save the date!
+                            </template>
+                            <div>
+                                Consistent with real life: in line with the process and logic of real
+                                life, and comply with languages and habits that the users are used to;
+                            </div>
+                        </el-collapse-item>
+
+                        <el-collapse-item name="2">
+                            <template #title>
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M60 31.7676C60 20.7219 51.0457 11.7676 40 11.7676C28.9543 11.7676 20 20.7219 20 31.7676V32.9722C20 37.3918 21.3809 41.7009 23.9497 45.2972L39.9605 67.7123C39.9799 67.7394 40.0201 67.7394 40.0395 67.7123L56.0503 45.2972C58.6191 41.7009 60 37.3918 60 32.9722V31.7676Z"
+                                        stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M36.0908 23.7692C38.5612 22.5795 41.4388 22.5795 43.9092 23.7692C46.3795 24.9588 48.1737 27.2087 48.7838 29.8818C49.3939 32.5549 48.7536 35.3604 47.0441 37.5041C45.3345 39.6478 42.7419 40.8963 40 40.8963C37.2581 40.8963 34.6655 39.6478 32.9559 37.5041C31.2464 35.3604 30.6061 32.5549 31.2162 29.8818C31.8263 27.2087 33.6205 24.9588 36.0908 23.7692Z"
+                                        stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                O local da cerimônia e recepção.
+                            </template>
+                            <div>
+                                Consistent with real life: in line with the process and logic of real
+                                life, and comply with languages and habits that the users are used to;
+                            </div>
+                        </el-collapse-item>
+
+                        <el-collapse-item name="3">
+                            <template #title>
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M34 43H15V69H65V43H46" stroke="#4a5344" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M34 43H11V29H69V43H46" stroke="#4a5344" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M34 69L34 29" stroke="#4a5344" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M46 29L46 69" stroke="#4a5344" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M39.6228 29C39.7921 29 39.899 28.8182 39.8168 28.6702L35.1436 20.2584C32.9018 16.2231 27.0983 16.2231 24.8565 20.2584C22.6776 24.1803 25.5136 29 30 29"
+                                        stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M40.3772 29C40.2079 29 40.101 28.8182 40.1832 28.6702L44.8564 20.2584C47.0982 16.2231 52.9017 16.2231 55.1435 20.2584C57.3224 24.1803 54.4864 29 50 29"
+                                        stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                Como nos presentear.
+                            </template>
+                            <div>
+                                Consistent with real life: in line with the process and logic of real
+                                life, and comply with languages and habits that the users are used to;
+                            </div>
+                        </el-collapse-item>
+                    </el-collapse>
+
+
+                    <span><b>Local:</b> Quadra do colégio águia</span><br />
+                    <span><b>Horário:</b> 10:00</span><br />
+                </div>
+            </div>
         </div>
+
+        <footer>
+            <coutdown-footer />
+        </footer>
     </div>
 </template>
+
+<script>
+import api from '../services/API/index.js';
+import Footer from '../components/Footer.vue';
+
+export default {
+    components: {
+        'coutdown-footer': Footer
+    },
+
+    data() {
+        return {
+            guestName: '',
+            inviteAccepted: false,
+            alreadySubmited: false
+        }
+    },
+
+    methods: {
+        async acceptInvitation() {
+            try {
+                this.alreadySubmited = true
+                await api.invitations.acceptInvitation(this.guestName)
+            } catch (error) {
+                console.log(error)
+                this.$notify({
+                    title: 'Deu problema',
+                    text: 'Contate os noivos(de preferência o noivo, a noiva tá aperriada).',
+                    type: 'error'
+                })
+
+                this.alreadySubmited = false
+                return
+            }
+
+            this.guestName = ''
+
+            this.$notify({
+                title: 'Presença confirmada!',
+                type: 'success'
+            })
+
+            this.inviteAccepted = true
+        }
+    },
+
+    computed: {
+        disableSubmitButton() {
+            return this.guestName.length < 4 || this.alreadySubmited
+        }
+    }
+}
+</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
-.main__container, .form__container {
+.main__container,
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.accordion_container {
+    width: 70vw;
 }
 
 .description__text {
@@ -54,59 +194,28 @@ hr {
     margin-top: 1em;
     padding: 1.5em 2em;
     border: none;
-    background-color: #6B7962;
+    background-color: #4a5344;
     color: white;
     font-family: "Libre Baskerville", serif;
     font-weight: 700;
     font-style: normal;
     font-size: 16px;
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #4a5344;
+    color: white;
+    text-align: center;
+    padding: 1.5em 0 4em;
+
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
 }
 </style>
-
-
-<script>
-import api from '../services/API/index.js';
-
-export default {
-    data() {
-        return {
-            guestName: '',
-            inviteAccepted: false,
-            alreadySubmited: false
-        }
-    },
-
-    methods: {
-        async acceptInvitation() {
-            try {
-                this.alreadySubmited = true
-                await api.invitations.acceptInvitation(this.guestName)
-            } catch (error) {
-                console.log(error)
-                this.$notify({
-                    title: 'Deu problema',
-                    text: 'Contate os noivos(de preferência o noivo, a noiva tá aperriada).',
-                    type: 'error'
-                })
-
-                this.alreadySubmited = false
-            }
-
-            this.guestName = ''
-            
-            this.$notify({
-                title: 'Convite aceito!',
-                type: 'success'
-            })
-            
-            this.inviteAccepted = true
-        }
-    },
-
-    computed: {
-        disableSubmitButton() {
-            return this.guestName.length < 4 || this.alreadySubmited
-        }
-    }
-}
-</script>

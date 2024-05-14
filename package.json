@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "^2.1.2",
     "@kyvg/vue3-notification": "^3.2.1",
     "@supabase/supabase-js": "^2.42.4",
+    "element-plus": "^2.7.1",
+    "firebase": "^10.9.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
