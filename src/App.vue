@@ -15,7 +15,7 @@ export default {
 
       <header>
         <h2>
-          <img src="../public/jl.png" alt="Jeniffer e Levi">
+          Jeniffer e Levi
         </h2>
       </header>
 
@@ -33,6 +33,12 @@ export default {
 </template>
 
 <style>
+@font-face {
+  font-family: 'amsterdanSignature';
+  src: url('./assets/AmsterdamSignature.ttf') format('truetype'),
+  url('./assets/AmsterdamSignature.woff') format('woff');
+}
+
 * {
   box-sizing: border-box;
 }
@@ -58,7 +64,15 @@ body {
 header {
   display: flex;
   justify-content: center;
-  padding-top: 2em;
+  padding: 2em 0;
+}
+
+h2 {
+  font-family: amsterdanSignature;
+  color: #4a5344;
+  font-size: 128px;
+  font-weight: 100;
+  margin: 0;
 }
 
 .main__container {
@@ -89,5 +103,4 @@ footer {
   font-size: 22px;
 
   margin-top: 1em;
-}
-</style>
+}</style>
