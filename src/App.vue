@@ -70,7 +70,7 @@ header {
 h2 {
   font-family: amsterdanSignature;
   color: #4a5344;
-  font-size: 118px;
+  font-size: 100px;
   font-weight: 100;
   margin: 0;
 }
@@ -100,7 +100,7 @@ footer {
   font-family: "Libre Baskerville", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 22px;
+  font-size: 16px;
 
   margin-top: 1em;
 }</style>

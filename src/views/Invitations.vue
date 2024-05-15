@@ -18,7 +18,7 @@
 
         <div class="container" v-else>
             <h4 class="description__text">Obrigado por confirmar a presença!</h4>
-            <div class="cards__container">
+            <div>
                 <div class="accordion__container">
                     <el-collapse accordion>
                         <el-collapse-item name="1">
@@ -34,28 +34,9 @@
                                 </svg>
                                 Save the date!
                             </template>
-                            <div class="std_card__container">
-                                <div>
-                                    <header>
-                                        Cerimônia
-                                    </header>
-
-                                    <div>
-                                        <span><b>Local:</b> Igreja Vale da Bênção</span><br />
-                                        <span><b>Horário:</b> 10:00</span><br />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <header>
-                                        Festa
-                                    </header>
-
-                                    <div>
-                                        <span><b>Local:</b> Quadra do colégio águia</span><br />
-                                        <span><b>Horário:</b> Após cerimônia</span><br />
-                                    </div>
-                                </div>
+                            <div class="savethedate_card__container">
+                                <h4>14/07/2024</h4>
+                                <img src="https://i.imgur.com/9NKXzl6.jpeg" alt="churek" width="100%">
                             </div>
                         </el-collapse-item>
 
@@ -124,9 +105,11 @@
                                 </svg>
                                 Como nos presentear.
                             </template>
-                            <div>
-                                Consistent with real life: in line with the process and logic of real
-                                life, and comply with languages and habits that the users are used to;
+                            <div class="gift_card__container">
+                                <video width="266" controls>
+                                    <source src="https://i.imgur.com/BVtLbZh.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                         </el-collapse-item>
                     </el-collapse>
@@ -160,7 +143,7 @@ export default {
         async acceptInvitation() {
             try {
                 this.alreadySubmited = true
-                await api.invitations.acceptInvitation(this.guestName)
+                // await api.invitations.acceptInvitation(this.guestName)
             } catch (error) {
                 console.log(error)
                 this.$notify({
@@ -201,12 +184,12 @@ export default {
     align-items: center;
 }
 
-.cards__container {
-    padding: 2em 0 0 0;
-}
-
 .accordion__container {
     width: 70vw;
+}
+
+.savethedate_card__container {
+    text-align: center;
 }
 
 .local_card__container {
@@ -224,7 +207,9 @@ export default {
     padding: 0;
 }
 
-.local_card__container>div>a:link,a:visited {
+.local_card__container>div>a,
+a:link,
+a:visited {
     color: #4a5344;
 }
 
@@ -233,7 +218,7 @@ export default {
     font-family: "Libre Baskerville", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 22px;
+    font-size: 18px;
     color: #4a5344;
     padding: 0;
     width: 70vw;
@@ -246,7 +231,7 @@ hr {
 
 .guest_name__input {
     margin-top: 2em;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .submit__button {
@@ -258,7 +243,7 @@ hr {
     font-family: "Libre Baskerville", serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
 }
 </style>
