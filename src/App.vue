@@ -70,7 +70,7 @@ header {
 h2 {
   font-family: amsterdanSignature;
   color: #4a5344;
-  font-size: 128px;
+  font-size: 118px;
   font-weight: 100;
   margin: 0;
 }
