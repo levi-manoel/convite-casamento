@@ -1,5 +1,5 @@
 <template>
-    <div class="main__container">
+    <div class="container">
         <div v-if="!inviteAccepted" class="container">
             <hr />
             <p class="description__text">
@@ -16,12 +16,10 @@
             </button>
         </div>
 
-        <div v-else>
-            <div class="container">
-                <h4>Obrigado por confirmar a presença!</h4>
-            </div>
-            <div class="card">
-                <div class="accordion_container">
+        <div class="container" v-else>
+            <h4 class="description__text">Obrigado por confirmar a presença!</h4>
+            <div class="cards__container">
+                <div class="accordion__container">
                     <el-collapse accordion>
                         <el-collapse-item name="1">
                             <template #title>
@@ -36,9 +34,28 @@
                                 </svg>
                                 Save the date!
                             </template>
-                            <div>
-                                Consistent with real life: in line with the process and logic of real
-                                life, and comply with languages and habits that the users are used to;
+                            <div class="std_card__container">
+                                <div>
+                                    <header>
+                                        Cerimônia
+                                    </header>
+
+                                    <div>
+                                        <span><b>Local:</b> Igreja Vale da Bênção</span><br />
+                                        <span><b>Horário:</b> 10:00</span><br />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <header>
+                                        Festa
+                                    </header>
+
+                                    <div>
+                                        <span><b>Local:</b> Quadra do colégio águia</span><br />
+                                        <span><b>Horário:</b> Após cerimônia</span><br />
+                                    </div>
+                                </div>
                             </div>
                         </el-collapse-item>
 
@@ -55,9 +72,28 @@
                                 </svg>
                                 O local da cerimônia e recepção.
                             </template>
-                            <div>
-                                Consistent with real life: in line with the process and logic of real
-                                life, and comply with languages and habits that the users are used to;
+                            <div class="local_card__container">
+                                <div>
+                                    <header>
+                                        Cerimônia
+                                    </header>
+
+                                    <div>
+                                        <span><b>Local:</b> Igreja Vale da Bênção</span><br />
+                                        <span><b>Horário:</b> 10:00</span><br />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <header>
+                                        Recepção
+                                    </header>
+
+                                    <div>
+                                        <span><b>Local:</b> Quadra do colégio águia</span><br />
+                                        <span><b>Horário:</b> Após cerimônia</span><br />
+                                    </div>
+                                </div>
                             </div>
                         </el-collapse-item>
 
@@ -88,17 +124,9 @@
                             </div>
                         </el-collapse-item>
                     </el-collapse>
-
-
-                    <span><b>Local:</b> Quadra do colégio águia</span><br />
-                    <span><b>Horário:</b> 10:00</span><br />
                 </div>
             </div>
         </div>
-
-        <footer>
-            <coutdown-footer />
-        </footer>
     </div>
 </template>
 
@@ -108,7 +136,7 @@ import Footer from '../components/Footer.vue';
 
 export default {
     components: {
-        'coutdown-footer': Footer
+        'coutdown-footer': Footer,
     },
 
     data() {
@@ -123,7 +151,7 @@ export default {
         async acceptInvitation() {
             try {
                 this.alreadySubmited = true
-                await api.invitations.acceptInvitation(this.guestName)
+                // await api.invitations.acceptInvitation(this.guestName)
             } catch (error) {
                 console.log(error)
                 this.$notify({
@@ -158,15 +186,28 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
-.main__container,
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.accordion_container {
+.cards__container {
+    padding: 2em 0 0 0;
+}
+
+.accordion__container {
     width: 70vw;
+}
+
+.local_card__container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.local_card__container>div {
+    border: #4a5344 1px solid;
+    padding: 2em .75em;
 }
 
 .description__text {
@@ -201,21 +242,5 @@ hr {
     font-style: normal;
     font-size: 16px;
     cursor: pointer;
-}
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #4a5344;
-    color: white;
-    text-align: center;
-    padding: 1.5em 0 4em;
-
-    font-family: "Libre Baskerville", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22px;
 }
 </style>
