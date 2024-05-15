@@ -192,7 +192,7 @@
     color: var(--el-collapse-content-text-color);
     font-size: var(--el-collapse-content-font-size);
     line-height: 1.7692307692;
-    padding: .3em 1em;
+    padding: .3em 1em 2.5em;
 }
 
 .el-collapse-item:last-child {

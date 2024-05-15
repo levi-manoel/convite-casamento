@@ -9,7 +9,7 @@
 export default {
     data() {
         const now = new Date();
-        const theDay = new Date('2024-07-14 10:30:00');
+        const theDay = new Date('2024-07-14 10:00:00');
 
         return {
             time: theDay - now,

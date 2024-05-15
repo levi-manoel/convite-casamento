@@ -70,7 +70,7 @@
                                         d="M36.0908 23.7692C38.5612 22.5795 41.4388 22.5795 43.9092 23.7692C46.3795 24.9588 48.1737 27.2087 48.7838 29.8818C49.3939 32.5549 48.7536 35.3604 47.0441 37.5041C45.3345 39.6478 42.7419 40.8963 40 40.8963C37.2581 40.8963 34.6655 39.6478 32.9559 37.5041C31.2464 35.3604 30.6061 32.5549 31.2162 29.8818C31.8263 27.2087 33.6205 24.9588 36.0908 23.7692Z"
                                         stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                O local da cerimônia e recepção.
+                                Os locais.
                             </template>
                             <div class="local_card__container">
                                 <div>
@@ -81,8 +81,12 @@
                                     <div>
                                         <span><b>Local:</b> Igreja Vale da Bênção</span><br />
                                         <span><b>Horário:</b> 10:00</span><br />
+
+                                        <a target="_blank" :href="this.ceremonyMapLink">Clique aqui para abrir o mapa</a>
                                     </div>
                                 </div>
+
+                                <hr />
 
                                 <div>
                                     <header>
@@ -92,6 +96,8 @@
                                     <div>
                                         <span><b>Local:</b> Quadra do colégio águia</span><br />
                                         <span><b>Horário:</b> Após cerimônia</span><br />
+
+                                        <a target="_blank" :href="this.receptionMapLink">Clique aqui para abrir o mapa</a>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +149,10 @@ export default {
         return {
             guestName: '',
             inviteAccepted: false,
-            alreadySubmited: false
+            alreadySubmited: false,
+
+            ceremonyMapLink: import.meta.env.VITE_CEREMONY_MAP_LINK,
+            receptionMapLink: import.meta.env.VITE_RECEPTION_MAP_LINK,
         }
     },
 
@@ -151,7 +160,7 @@ export default {
         async acceptInvitation() {
             try {
                 this.alreadySubmited = true
-                // await api.invitations.acceptInvitation(this.guestName)
+                await api.invitations.acceptInvitation(this.guestName)
             } catch (error) {
                 console.log(error)
                 this.$notify({
@@ -202,12 +211,21 @@ export default {
 
 .local_card__container {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 .local_card__container>div {
-    border: #4a5344 1px solid;
-    padding: 2em .75em;
+    padding: 0 .75em;
+    margin-bottom: .75em;
+    text-align: center;
+}
+
+.local_card__container>div>header {
+    padding: 0;
+}
+
+.local_card__container>div>a:link,a:visited {
+    color: #4a5344;
 }
 
 .description__text {
