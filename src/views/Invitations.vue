@@ -164,7 +164,7 @@ export default {
         async acceptInvitation() {
             try {
                 this.alreadySubmited = true
-                // await api.invitations.acceptInvitation(this.guestName)
+                await api.invitations.acceptInvitation(this.guestName)
             } catch (error) {
                 console.log(error)
                 this.$notify({
