@@ -8,9 +8,9 @@
                 possamos, em breve, marcar um encontro para nos vermos.
             </p>
             <hr />
-            <div>
-                <input placeholder="Ex.: Silva e família" type="text" v-model="guestName" class="guest_name__input">
-            </div>
+            <label for="guestName" class="guest_name__label">Escreva o nome que está no seu convite:</label>
+            <input name="guestName" placeholder="Ex.: Silva e família" type="text" v-model="guestName"
+                class="guest_name__input">
             <button @click="acceptInvitation" class="submit__button" :disabled="disableSubmitButton">
                 Confirmar presença
             </button>
@@ -259,8 +259,16 @@ hr {
     color: #4a5344;
 }
 
+.guest_name__label {
+    margin-top: 1em;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: #4a5344;
+}
+
 .guest_name__input {
-    margin-top: 2em;
+    margin-top: .5em;
     font-size: 18px;
 }
 
