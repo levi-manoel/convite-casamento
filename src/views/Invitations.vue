@@ -32,11 +32,17 @@
                                     <path d="M27 20V12" stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
                                     <path d="M16 32H64" stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                Save the date!
+                                <span class="card_title">
+                                    Save the date!
+                                </span>
                             </template>
-                            <div class="savethedate_card__container">
+                            <!-- <div class="savethedate_card__container" v-if="showMemes.saveTheDateCard % 2 === 0">
                                 <h4>14/07/2024</h4>
                                 <img src="https://i.imgur.com/9NKXzl6.jpeg" alt="churek" width="100%">
+                            </div> -->
+
+                            <div class="card__container savethedate_card__container">
+                                14 de julho de 2024
                             </div>
                         </el-collapse-item>
 
@@ -51,16 +57,18 @@
                                         d="M36.0908 23.7692C38.5612 22.5795 41.4388 22.5795 43.9092 23.7692C46.3795 24.9588 48.1737 27.2087 48.7838 29.8818C49.3939 32.5549 48.7536 35.3604 47.0441 37.5041C45.3345 39.6478 42.7419 40.8963 40 40.8963C37.2581 40.8963 34.6655 39.6478 32.9559 37.5041C31.2464 35.3604 30.6061 32.5549 31.2162 29.8818C31.8263 27.2087 33.6205 24.9588 36.0908 23.7692Z"
                                         stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                Os locais.
+                                <span class="card_title">
+                                    Cerimônia e recepção
+                                </span>
                             </template>
-                            <div class="local_card__container">
+                            <div class="card__container local_card__container">
                                 <div>
                                     <header>
                                         Cerimônia
                                     </header>
 
                                     <div>
-                                        <span><b>Local:</b> Igreja Vale da Bênção</span><br />
+                                        <span><b>Local:</b> Igreja Vale da Bênção Central</span><br />
                                         <span><b>Horário:</b> 10:00</span><br />
 
                                         <a target="_blank" :href="this.ceremonyMapLink">Clique aqui para abrir o mapa</a>
@@ -75,7 +83,7 @@
                                     </header>
 
                                     <div>
-                                        <span><b>Local:</b> Quadra do colégio águia</span><br />
+                                        <span><b>Local:</b> Quadra do Colégio Águia</span><br />
                                         <span><b>Horário:</b> Após cerimônia</span><br />
 
                                         <a target="_blank" :href="this.receptionMapLink">Clique aqui para abrir o mapa</a>
@@ -103,13 +111,21 @@
                                         d="M40.3772 29C40.2079 29 40.101 28.8182 40.1832 28.6702L44.8564 20.2584C47.0982 16.2231 52.9017 16.2231 55.1435 20.2584C57.3224 24.1803 54.4864 29 50 29"
                                         stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                                Como nos presentear.
+                                <span class="card_title">
+                                    Como nos presentear
+                                </span>
                             </template>
-                            <div class="gift_card__container">
-                                <video width="266" controls>
+                            <!-- <div class="gift_card__container">
+                                <video width="100%" controls>
                                     <source src="https://i.imgur.com/BVtLbZh.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
+                            </div> -->
+
+                            <div class="card__container gift_card__container">
+                                <div class="savethedate_card__container" v-if="showMemes.saveTheDateCard % 2 === 0">
+                                    <img src="/faz_o_pix_full.jpg" width="100%">
+                                </div>
                             </div>
                         </el-collapse-item>
                     </el-collapse>
@@ -133,6 +149,11 @@ export default {
             guestName: '',
             inviteAccepted: false,
             alreadySubmited: false,
+
+            showMemes: {
+                saveTheDateCard: 0,
+                giftUsCard: 0
+            },
 
             ceremonyMapLink: import.meta.env.VITE_CEREMONY_MAP_LINK,
             receptionMapLink: import.meta.env.VITE_RECEPTION_MAP_LINK,
@@ -188,8 +209,14 @@ export default {
     width: 70vw;
 }
 
-.savethedate_card__container {
+.card_title {
+    font-family: "Libre Baskerville", serif;
+}
+
+.card__container {
     text-align: center;
+    font-size: 16px;
+    padding: 0 0 2em 0;
 }
 
 .local_card__container {
@@ -200,7 +227,6 @@ export default {
 .local_card__container>div {
     padding: 0 .75em;
     margin-bottom: .75em;
-    text-align: center;
 }
 
 .local_card__container>div>header {
@@ -211,6 +237,10 @@ export default {
 a:link,
 a:visited {
     color: #4a5344;
+}
+
+.gift_card__container {
+    padding: 0;
 }
 
 .description__text {
