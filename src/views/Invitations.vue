@@ -84,7 +84,7 @@
 
                                     <div>
                                         <span><b>Local:</b> Quadra do Colégio Águia</span><br />
-                                        <span><b>Horário:</b> Após cerimônia</span><br />
+                                        <span><b>Horário:</b> Após a cerimônia</span><br />
 
                                         <a target="_blank" :href="this.receptionMapLink">Clique aqui para abrir o mapa</a>
                                     </div>
