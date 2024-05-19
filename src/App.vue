@@ -5,12 +5,20 @@ import CountdownFooter from './components/Footer.vue'
 export default {
   components: {
     'countdown-footer': CountdownFooter
-  }
+  },
+
+  data: () => ({
+    isLoading: false
+  })
 }
 </script>
 
 <template>
   <div class="main__container">
+    <div class="loading style-2" v-if="isLoading">
+      <div class="loading-wheel"></div>
+    </div>
+
     <div>
 
       <header>
@@ -20,7 +28,7 @@ export default {
       </header>
 
       <main>
-        <RouterView />
+        <RouterView @startLoading="() => this.isLoading = true" @stopLoading="() => this.isLoading = false" />
         <notifications position="bottom right" />
       </main>
 
@@ -36,7 +44,7 @@ export default {
 @font-face {
   font-family: 'amsterdanSignature';
   src: url('./assets/AmsterdamSignature.ttf') format('truetype'),
-  url('./assets/AmsterdamSignature.woff') format('woff');
+    url('./assets/AmsterdamSignature.woff') format('woff');
 }
 
 * {
@@ -103,4 +111,46 @@ footer {
   font-size: 16px;
 
   margin-top: 1em;
-}</style>
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.loading-wheel {
+  width: 20px;
+  height: 20px;
+  margin-top: -40px;
+  margin-left: -40px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  border-width: 30px;
+  border-radius: 50%;
+  -webkit-animation: spin 1s linear infinite;
+}
+
+.style-2 .loading-wheel {
+  border-style: double;
+  border-color: #ccc transparent;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(-360deg);
+  }
+}
+</style>

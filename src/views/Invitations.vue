@@ -28,9 +28,12 @@
                                     <path
                                         d="M16 24C16 21.7909 17.7909 20 20 20H60C62.2091 20 64 21.7909 64 24V64C64 66.2091 62.2091 68 60 68H20C17.7909 68 16 66.2091 16 64V24Z"
                                         stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M53 20V12" stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M27 20V12" stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M16 32H64" stroke="#4a5344" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M53 20V12" stroke="#4a5344" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M27 20V12" stroke="#4a5344" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 32H64" stroke="#4a5344" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                                 <span class="card_title">
                                     Save the date!
@@ -71,7 +74,8 @@
                                         <span><b>Local:</b> Igreja Vale da Bênção Central</span><br />
                                         <span><b>Horário:</b> 10:00</span><br />
 
-                                        <a target="_blank" :href="this.ceremonyMapLink">Clique aqui para abrir o mapa</a>
+                                        <a target="_blank" :href="this.ceremonyMapLink">Clique aqui para abrir o
+                                            mapa</a>
                                     </div>
                                 </div>
 
@@ -86,7 +90,8 @@
                                         <span><b>Local:</b> Quadra do Colégio Águia</span><br />
                                         <span><b>Horário:</b> Após a cerimônia</span><br />
 
-                                        <a target="_blank" :href="this.receptionMapLink">Clique aqui para abrir o mapa</a>
+                                        <a target="_blank" :href="this.receptionMapLink">Clique aqui para abrir o
+                                            mapa</a>
                                     </div>
                                 </div>
                             </div>
@@ -162,6 +167,7 @@ export default {
 
     methods: {
         async acceptInvitation() {
+            this.$emit('startLoading')
             try {
                 this.alreadySubmited = true
                 await api.invitations.acceptInvitation(this.guestName)
@@ -173,12 +179,14 @@ export default {
                     type: 'error'
                 })
 
+                this.$emit('stopLoading')
                 this.alreadySubmited = false
                 return
             }
 
             this.guestName = ''
 
+            this.$emit('stopLoading')
             this.$notify({
                 title: 'Presença confirmada!',
                 type: 'success'
