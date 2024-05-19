@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="text-align: center;">
         <div v-for="guest in guests.accepted_invites">{{ guest }}</div>
     </div>
 </template>
