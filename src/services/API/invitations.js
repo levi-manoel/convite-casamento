@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
-import { doc, updateDoc, arrayUnion } from 'firebase/firestore'
+import { doc, updateDoc, arrayUnion, getDoc } from 'firebase/firestore'
 import 'firebase/firestore'
 
 const firebaseConfig = {
@@ -16,13 +16,21 @@ const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
 
 async function acceptInvitation(guest_name) {
-    const listRef = doc(db, 'database', 'data')
+    const docRef = doc(db, 'database', 'data')
 
-    await updateDoc(listRef, {
+    await updateDoc(docRef, {
         accepted_invites: arrayUnion(guest_name)
     })
 }
 
+async function getGuests() {
+    const docRef = doc(db, 'database', 'data');
+    const docSnap = await getDoc(docRef);
+
+    return docSnap.data()
+}
+
 export default {
-    acceptInvitation
+    acceptInvitation,
+    getGuests
 }
