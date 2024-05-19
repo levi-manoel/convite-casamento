@@ -9,7 +9,9 @@ import api from '../services/API/index.js';
 
 export default {
     async created() {
+        this.$emit('startLoading')
         this.guests = await api.invitations.getGuests()
+        this.$emit('stopLoading')
     },
 
     data: () => ({
